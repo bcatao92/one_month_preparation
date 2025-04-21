@@ -1,15 +1,29 @@
-s = "07:05:45AM"
+#!/bin/python3
 
-if s[-2] == 'P':
-    if s[0:2] == '12':
-        aux = s[:-2]
-    else:
-        aux = str(int(s[0:2])+12)+s[2:-2]
-else:
-    if s[0:2] == '12':
-        aux = '00'+s[2:-2]
-    else:
-        aux = s[:-2]
-    print(aux)
+import math
+import os
+import random
+import re
+import sys
 
-    
+#
+# Complete the 'timeConversion' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def timeConversion(s):
+    # Write your code here
+    if s[-2] == 'P':
+        if s[0:2] == '12':
+            aux = s[:-2]
+        else:
+            aux = str(int(s[0:2])+12)+s[2:-2]
+    else:
+        if s[0:2] == '12':
+            aux = '00'+s[2:-2]
+        else:
+            aux = s[:-2]
+    return(aux)
+
