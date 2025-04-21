@@ -1,0 +1,37 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'plusMinus' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+def format(num, arr):
+    num = "{:.6f}".format(num/len(arr)) 
+    print(num)
+
+def plusMinus(arr):
+    # Write your code here
+    pos,neg, zero = 0,0,0
+    for elemento in arr:
+        if elemento < 0:
+            neg+=1
+        elif elemento > 0:
+            pos+=1
+        else:
+            zero+=1
+    res = [pos,neg,zero]
+    for elemento in res:
+        format(elemento,arr)
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
