@@ -1,0 +1,15 @@
+s = "07:05:45AM"
+
+if s[-2] == 'P':
+    if s[0:2] == '12':
+        aux = s[:-2]
+    else:
+        aux = str(int(s[0:2])+12)+s[2:-2]
+else:
+    if s[0:2] == '12':
+        aux = '00'+s[2:-2]
+    else:
+        aux = s[:-2]
+    print(aux)
+
+    
