@@ -18,12 +18,14 @@ import sys
 
 def twoArrays(k, A, B):
     # Write your code here
-    #A1,B1 = [], []
+    A.sort()
+    B.sort(reverse=True)
     for i in range(len(A)):
-        for j in range(len(A)):
-            if A[i] + B[j]  >= k:
-                return "YES"
-    return "NO"
+        if A[i] + B[i] < k:
+            return "NO"
+    return "YES"
+
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
