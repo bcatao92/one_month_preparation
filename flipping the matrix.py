@@ -2,16 +2,31 @@ matrix = [[112, 42, 83, 119],
           [56, 125, 56, 49],
           [15, 78, 101, 43], 
           [62, 98, 114, 108]]
-n = len(matrix)
-m = int(n/2)
 
-for i in range(m):
-    pm,sm=0,0                   #primeira metade, segunda metade
-    for j in range(m):
-        pm+=matrix[j][i]
-        sm+=matrix[j+m][i]
-    for j in range(n):    
-            matrix[j][i], matrix[n - 1 - j][i] = matrix[n - 1 - j][i], matrix[j][i]
+def inverteColuna(matriz,coluna):
+    aux = []
+    n = int(len(matriz))
+    for i in range(n):
+        aux.append(matriz[i][coluna])
+    aux = aux[::-1]
+    for j in range(n):
+        matriz[j][coluna] = aux[j]    
+    return matriz
+
+def inverteLinha(matriz,linha):
+    matriz[linha] = matriz[linha][::-1]
+    return matriz
+
+def checaLinha(matriz):
+    n = int(len(matriz)/2)
+    for line in range(n):
+        if sum(matriz[line][0:n]) < sum(matriz[line][n:]):
+            inverteLinha(matriz,line)
+    return(matriz)
+
+def checaColuna(matriz):
+    n = len(matriz)
+    for linha in range(n):
+        for coluna in range(n):
 
 
-print(matrix)
