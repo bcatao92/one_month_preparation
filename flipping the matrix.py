@@ -24,9 +24,33 @@ def checaLinha(matriz):
             inverteLinha(matriz,line)
     return(matriz)
 
-def checaColuna(matriz):
+def checaColuna(matriz,coluna):
     n = len(matriz)
-    for linha in range(n):
-        for coluna in range(n):
+    pm,sm = 0,0
+    for i in range(int(n/2)):
+        #print(matriz[i][coluna])
+        pm += matriz[i][coluna]
+        sm += matriz[i+int(n/2)][coluna]
+    if sm > pm:
+        inverteColuna(matriz,coluna)
+        return matriz
+    return matriz
 
+def somaQuadrante(matriz):
+    sum = 0
+    n = int(len(matriz)/2)
+    for i in range(n):
+        for j in range(n):
+            sum+=matriz[j][i]
+    return sum
+
+
+def main(matriz):
+    n = len(matriz)
+    for coluna in range(n):
+        checaColuna(matriz,coluna)
+    for linha in range(n):
+        checaLinha(matriz)
+    return(somaQuadrante(matriz))
+print(main(matrix))
 
