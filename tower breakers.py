@@ -7,7 +7,8 @@
 
 def maiorDivisor(m):
     if m%2 == 0:
-        return int(m/2)
+        a =int(m/2)
+        return a
     a = m//2
     while m%a!=0:
         a-=1
@@ -15,7 +16,7 @@ def maiorDivisor(m):
 
 def selecionaTorre(torres):
     res = 0
-    while max(torres)!= 1:
+    while max(torres)> 1:
         alvo = torres.index(max(torres))
         torres[alvo] = torres[alvo]/maiorDivisor(torres[alvo])
         res+=1
@@ -25,7 +26,7 @@ def selecionaTorre(torres):
 def towerBreakers(n,m):
     aux = []
     for i in range(1,n+1): #preenche o array com as torres
-        aux.append(m)
+        aux.append(int(m))
     res = selecionaTorre(aux)   
     if res%2 == 0: return 2 
     return 1
