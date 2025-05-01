@@ -1,38 +1,39 @@
-#Lógica: criar um array contendo as torres
-#Cada jogada vai pegar a maior torre disponível e 
-# reduzi-la por um divisor exato de sua altura
-#Cada iteração acrescenta 1 ao res
-#Se res for par, ganha o jogador 2, senão, o 1
+#!/bin/python3
 
+import math
+import os
+import random
+import re
+import sys
 
-def maiorDivisor(m):
-    if m%2 == 0:
-        a =int(m/2)
-        return a
-    a = m//2
-    while m%a!=0:
-        a-=1
-    return a
+#
+# Complete the 'towerBreakers' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER m
+#
 
-def selecionaTorre(torres):
-    res = 0
-    while max(torres)> 1:
-        alvo = torres.index(max(torres))
-        torres[alvo] = torres[alvo]/maiorDivisor(torres[alvo])
-        res+=1
-    return res
-
-
-def towerBreakers(n,m):
-    aux = []
-    for i in range(1,n+1): #preenche o array com as torres
-        aux.append(int(m))
-    res = selecionaTorre(aux)   
-    if res%2 == 0: return 2 
+def towerBreakers(n, m):
+    # Write your code here
+    if m == 1 or n%2==0: return 2
     return 1
 
-print(towerBreakers(2,2))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
+    t = int(input().strip())
 
-def evenOdds(n,m):
-    
+    for t_itr in range(t):
+        first_multiple_input = input().rstrip().split()
+
+        n = int(first_multiple_input[0])
+
+        m = int(first_multiple_input[1])
+
+        result = towerBreakers(n, m)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
