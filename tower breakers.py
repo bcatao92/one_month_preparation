@@ -32,3 +32,7 @@ def towerBreakers(n,m):
     return 1
 
 print(towerBreakers(2,2))
+
+
+def evenOdds(n,m):
+    
