@@ -1,3 +1,17 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'counterGame' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts LONG_INTEGER n as parameter.
+#
 def isPower2(n):
     s = bin(n)[2:]
     s = list(str(s))
@@ -31,8 +45,7 @@ def counterGame(n):
     conta = 0
     if isPower2(n):
         conta = divide(n)
-        print(conta)
-        if conta - 1 % 2 != 0:
+        if (conta - 1) % 2 != 0:
             return "Richard"
         else:
             return "Louise"
@@ -41,13 +54,23 @@ def counterGame(n):
             n = n - findPower2(n)
             conta += 1
         print(conta)
-        if conta - 1 % 2 != 0:
+        if (conta - 1) % 2 != 0:
             return "Richard"
         else:
             return "Louise"
 
 
-a = 1459730561
-b = 6
-c = 8
-print(counterGame(a))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        result = counterGame(n)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
