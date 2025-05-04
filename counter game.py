@@ -13,15 +13,9 @@ import sys
 # The function accepts LONG_INTEGER n as parameter.
 #
 def isPower2(n):
-    s = bin(n)[2:]
-    s = list(str(s))
-    count = 0
-    for char in s:
-        if char == "1":
-            count += 1
-        if count == 2:
-            return False
-    return True
+    if math.log2(n)%2 == 0: 
+        return True
+    return False
 
 
 def findPower2(n):
