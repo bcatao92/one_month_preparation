@@ -10,11 +10,11 @@ def encontraVizinhos(grid):
                 bombas[i][j] = '.'
                 if i - 1 >= 0:
                     bombas[i-1][j] = '.'
-                if i + 1 <= m:
+                if i + 1 < n:
                     bombas[i+1][j] = '.' 
                 if j - 1 >= 0:
                     bombas[i][j-1] = '.'
-                if j + 1 <= n:
+                if j + 1 < m:
                     bombas[i][j+1] = '.'
     for i in range(len(bombas)):
         bombas[i] = ''.join(bombas[i])
@@ -36,10 +36,4 @@ def bomberMan(n, grid):
     if n%4 == 3:
         return explosao
 
-n = 5
-grid = ['.......',
-'...O.O.',
-'....O..',
-'..O....',
-'OO...OO',
-'OO.O...']
+
