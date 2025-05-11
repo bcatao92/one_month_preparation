@@ -1,22 +1,25 @@
-#q = [1,2,3,5,4,6,7,8]
-q = [4,1,2,3]
-n = len(q)
-
-suborno = 0
-
-i = 0
-while i < n:
-#for i in range(n):
-    if q[i] != i+1:
-        print(q[i])
-        a = q[i]-q[i+1]
-        i+=1
-        if a == 1:
-            suborno+=1
-        elif a == 2:
-            suborno+=2
-        else:
+#q = [5,1,2,3,4,6,8,7]
+#q = [4,1,2,3]
+#q = [2,1,5,3,4]
+#q = [5,1,2,3,7,8,6,4]
+q = [1,2,5,3,7,8,6,4]
+def minimumBribes(q):
+    for i in range(len(q)):
+        if (q[i]-(i+1))>2:
             print("Too chaotic")
-            quit()
-    i+=1
-print("Subornos: ",suborno)
+            return
+    swap=0
+    for i in range(len(q)):
+        s=0
+        for j in range(0,len(q)-i-1):
+            if q[j]>q[j+1]:
+                q[j],q[j+1]=q[j+1],q[j]
+                s+=1
+        if s==0:
+            break
+        swap+=s
+
+    print(swap)
+    return
+
+minimumBribes(q)
