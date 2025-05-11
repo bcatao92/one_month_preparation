@@ -1,22 +1,22 @@
-q = [1,2,3,4,5,6,7,8]
+#q = [1,2,3,5,4,6,7,8]
+q = [4,1,2,3]
+n = len(q)
 
-q2 = [1,2,3,5,4,6,7,8]
+suborno = 0
 
-bribes = 0
-#for i in range(len(q2)):
-#    if q2[i] != i+1:
-#        print(q2[i],q[i+1])
-#        
-#print(bribes)
-
-total1,total2 = 0,0
-soma = sum(q)
-suborno=0
-for i in range(len(q)):
-    total1+=q[i]
-    total2+=q2[i]
-    if total1!=total2:
-        suborno+=1
-        
-    print(total1," ",total2)
-print(suborno)
+i = 0
+while i < n:
+#for i in range(n):
+    if q[i] != i+1:
+        print(q[i])
+        a = q[i]-q[i+1]
+        i+=1
+        if a == 1:
+            suborno+=1
+        elif a == 2:
+            suborno+=2
+        else:
+            print("Too chaotic")
+            quit()
+    i+=1
+print("Subornos: ",suborno)
