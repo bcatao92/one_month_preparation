@@ -23,7 +23,6 @@ def isValid(s):
 
     
     c = set(dici)
-    #print(c)
     if(len(c)) == 1: return "YES"
     if len(c) > 2: return "NO"
     if max(c)-min(c) > 1 and min(c) != 1: return "NO"
