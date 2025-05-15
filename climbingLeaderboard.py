@@ -12,3 +12,5 @@ def climbingLeaderboard_optimized(ranked, player):
             i -= 1
         result.append(i + 2)  # +2 because rank is index+1, and we stopped at the first less-than
     return result
+
+print(3500*12)
